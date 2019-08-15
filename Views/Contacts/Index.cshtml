@@ -1,0 +1,105 @@
+﻿@model Core.ViewModel.ContactsViewModel;
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/css/pages/app-sidebar.css">
+<link rel="stylesheet" type="text/css" href="~/css/pages/app-contacts.css">
+
+<style>
+    th:first-child,
+    td:first-child {
+        padding-left: 20px;
+    }
+    li.sidebar-titles {
+        font-weight: 700;
+        padding: 15px 8px;
+        text-transform: uppercase;
+        color: #212121;
+    }
+</style>
+
+<div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+<div class="col s12">
+    <div class="container">
+        <!-- Sidebar Area Starts -->
+        <div class="sidebar-left sidebar-fixed">
+            <div class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <div class="sidebar-details">
+                            <h5 class="m-0 sidebar-title">
+                                <i class="material-icons app-header-icon text-top">perm_identity</i> Contacts
+                            </h5>
+                            <div class="mt-10 pt-2">
+                                <p class="m-0 subtitle font-weight-700">Total number of contacts</p>
+                                <p class="m-0 text-muted">@(Model.Contacts.Count) Contacts</p>
+                            </div>
+                        </div>
+                        <div class="sidebar-list-padding animate fadeLeft delay-1" style="padding-top:40px">
+                            <ul class="contact-list display-grid">
+                                <li class="sidebar-titles">Filters</li>
+                                <li style="margin-left:-25px">
+                                    <img src="~/images/filters.png" style="width:250px" />
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table Start -->
+        <div class="content-area content-right">
+            <div class="app-wrapper">
+                <div class="datatable-search">
+                    <i class="material-icons mr-2 search-icon">search</i>
+                    <input type="text" placeholder="Search Contact" class="app-filter" id="global_filter">
+                </div>
+                <div id="button-trigger" class="card card card-default scrollspy border-radius-6 fixed-width">
+                    <div class="card-content p-0">
+                        <table id="data-table-contact" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="background-image-none center-align">
+                                        <label>
+                                            <input type="checkbox" onClick="toggle(this)" />
+                                            <span></span>
+                                        </label>
+                                    </th>
+                                    <th>User</th>
+                                    <th>Full Name</th>
+                                    <th>Gender</th>
+                                    <th>Age</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Description</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var ct in Model.Contacts){
+                                    <tr>
+                                        <td class="center-align"><label><input type="checkbox" @(ct.Complete.Equals(1) ? "checked" : "") name="foo" /><span></span></label></td>
+                                        <td><span class="avatar-contact avatar-online"><img src="~/images/avatar/avatar-@(ct.Image).png" alt="avatar"></span></td>
+                                        <td><a class="blue-text" href="/contacts/@(ct.Uuid)">@ct.Name</a></td>
+                                        <td>@ct.Gender</td>
+                                        <td>@ct.GetAge()</td>
+                                        <td>@(ct.Email == "" ? "N/A" : ct.Email)</td>
+                                        <td>@ct.Telephone</td>
+                                        <td>@ct.Description</td>
+                                        <td>
+                                            <span class="favorite"><i class="material-icons @(ct.Favorite.Equals(1) ? "amber-text" : "")">star_border</i></span>
+                                            <i class="material-icons delete red-text">delete_forever</i>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

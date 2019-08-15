@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+
+    var breadcrumbs = new Core.ViewModel.Breadcrumbs {
+        Level1 = new Core.ViewModel.Linkage {
+            Url = "/",
+            Label = "Security"
+        },
+        Level2 = new Core.ViewModel.Linkage {
+            Label = ViewData["Title"].ToString()
+        }
+    };
+
+}
+
+<partial name="_Breadcrumbs" model="breadcrumbs" />
+<div class="col s12">
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <h4 class="card-title">@ViewData["Title"]</h4>
+                <p>Use this page to detail your site's privacy policy.</p>
+            </div>
+        </div>
+    </div>
+</div>

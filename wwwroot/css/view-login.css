@@ -1,0 +1,23 @@
+/*----------------------------------------
+    Login Page
+------------------------------------------*/
+.login-bg
+{
+    background-image: url('../images/gallery/flat-bg.jpg');
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+            background-size: cover;
+}
+footer {
+    color: #fff;
+}
+footer a {
+    color: #a8b3f5;
+}
+
+#login-page, #login-img {
+    height: calc(100vh - 120px);
+}
+#login-page .card-panel.border-radius-6.login-card {
+    margin-left: 0 !important;
+}

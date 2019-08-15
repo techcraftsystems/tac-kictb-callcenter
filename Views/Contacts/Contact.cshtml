@@ -1,0 +1,214 @@
+﻿@model Core.ViewModel.ContactsProfileViewModel;
+@{
+    ViewData["Title"] = Model.Contact.Name;
+}
+
+
+<link rel="stylesheet" type="text/css" href="~/css/pages/user-profile-page.css">
+
+<div class="content-wrapper-before gradient-45deg-indigo-purple"></div>
+<div class="breadcrumbs-dark pb-0 pt-4" id="breadcrumbs-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col s10 m6 l6">
+                <h5 class="breadcrumbs-title mt-0 mb-0">Contact's Profile Page</h5>
+                <ol class="breadcrumbs mb-0">
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/contacts">Contacts</a>
+                    </li>
+                    <li class="breadcrumb-item active">
+                        @Model.Contact.Name
+                    </li>
+                </ol>
+            </div>
+            <div class="col s2 m6 l6">
+                <a class="btn dropdown-settings waves-effect waves-light breadcrumbs-btn right" href="#!" data-target="dropdown1"><i class="material-icons hide-on-med-and-up">settings</i><span class="hide-on-small-onl">Actions</span><i class="material-icons right">arrow_drop_down</i></a>
+                <ul class="dropdown-content" id="dropdown1" tabindex="0">
+                    <li tabindex="0"><a class="grey-text text-darken-2" href="/contacts/search?key=recent">Recent<span class="new badge red">24</span></a></li>
+                    <li tabindex="0"><a class="grey-text text-darken-2" href="/contacts/registration">Add New</a></li>
+                    <li tabindex="0"><a class="grey-text text-darken-2" href="/contacts/import">Import Contacts</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li tabindex="0"><a class="grey-text text-darken-2" href="/contacts/search?key=frequent">Frequent Contacts</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="user-profile">
+    <div class="row">
+        <div class="col s12 m4 l3 user-section-negative-margin">
+            <div class="row">
+                <div class="col s12">
+                    <div class="hide-on-small-only" style="height:110px">&nbsp;</div>
+                    <img class="responsive-img circle z-depth-5" width="200" src="~/images/avatar/avatar-@(Model.Contact.Image).png" alt="" style="width:140px;">
+                    <br />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12">
+                    <p class="m-0">Followups Activities</p>
+                    <p class="m-0"><a href="#">5</a> and <a href="#">2</a> investigations</p>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col s12">
+                    <h6>Examination Reviews</h6>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col s2 mt-2 pr-0 circle">
+                    <a href="#"><img class="responsive-img circle" src="~/images/logo/ncc.png" alt=""></a>
+                </div>
+                <div class="col s9">
+                    <a href="#">
+                        <p class="m-0">Mbagathi Hospital</p>
+                    </a>
+                    <p class="m-0 amber-text">
+                        <span class="material-icons star-width">star_rate</span> <span class="material-icons star-width">star_rate</span>
+                        <span class="material-icons star-width">star_rate</span> <span class="material-icons star-width">star_rate</span>
+                        <span class="material-icons star-width">star_border</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Post Feed -->
+        <div class="col s12 m8 l6">
+            <div class="row">
+                <div class="card user-card-negative-margin z-depth-0" id="feed">
+                    <div class="card-content card-border-gray">
+                        <div class="row">
+                            <div class="col s12">
+                                <h5>@Model.Contact.Name</h5>
+                                <p>
+                                    TB Suspect (Confirmed)
+                                    <span class="amber-text">
+                                        <span class="material-icons star-width vertical-align-middle">star_rate</span>
+                                        <span class="material-icons star-width vertical-align-middle">star_rate</span> <span class="material-icons star-width vertical-align-middle">star_rate</span>
+                                        <span class="material-icons star-width vertical-align-middle">star_rate</span> <span class="material-icons star-width vertical-align-middle">star_rate</span>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col s12">
+                                <ul class="tabs card-border-gray mt-4">
+                                    <li class="tab col m3 s6 p-0">
+                                        <a class="active" href="#test2">
+                                            <i class="material-icons vertical-align-middle">bookmark_border</i> Feeds
+                                        </a>
+                                    </li>
+                                    <li class="tab col m3 s6 p-0">
+                                        <a href="#test1">
+                                            <i class="material-icons vertical-align-middle">crop_portrait</i>Info
+                                        </a>
+                                    </li>
+                                    <li class="tab col m3 s6 p-0">
+                                        <a href="#test3">
+                                            <i class="material-icons vertical-align-middle">date_range</i>Appointments
+                                        </a>
+                                    </li>
+                                    <li class="tab col m3 s6 p-0">
+                                        <a href="#test4">
+                                            <i class="material-icons vertical-align-middle">attach_file</i> History
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col s1 pr-0 circle">
+                                <a href="#"><img class="responsive-img circle" src="~/images/avatar/avatar-@(Model.Contact.Image).png" alt=""></a>
+                            </div>
+                            <div class="col s11">
+                                <a href="#">
+                                    <p class="m-0">
+                                        @Model.Contact.Name 
+                                        <span>
+                                            <i class="material-icons vertical-align-bottom">access_time</i> 51 days ago
+                                        </span>
+                                    </p>
+                                </a>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="card card-border z-depth-2">
+                                            <div class="card-image">
+                                                <img src="../../../app-assets/images/gallery/post-1.png" alt="">
+                                            </div>
+                                            <div class="card-content">
+                                                <h6 class="font-weight-900 text-uppercase"><a href="#">Imaging Service</a></h6>
+                                                <p>GeneXpert & Xray Design</p>
+                                            </div>
+                                        </div>
+                                        <div class="social-icon">
+                                            <i class="material-icons vertical-align-bottom ml-3 mr-1">chat_bubble_outline</i> View 
+                                            <span><i class="material-icons vertical-align-bottom ml-3 mr-1">redo</i> 6</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="mt-5">
+
+                        <div class="row mt-5">
+                            <div class="col s1 pr-0 circle">
+                                <a href="#"><img class="responsive-img circle" src="~/images/user/7.jpg" alt=""></a>
+                            </div>
+                            <div class="col s11">
+                                <a href="#">
+                                    <p class="m-0">
+                                        Josephine Maina <span>
+                                            <i class="material-icons vertical-align-bottom">access_time</i> 90
+                                            days ago
+                                        </span>
+                                    </p>
+                                </a>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <div class="card card-border z-depth-2">
+                                            <div class="card-content">
+                                                <div class="row">
+                                                    <div class="col s2 pr-0 circle">
+                                                        <a href="#">
+                                                            <img class="responsive-img circle" src="~/images/avatar/avatar-@(Model.Contact.Image).png"
+                                                                 alt="">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <a href="#">
+                                                            <h6>@Model.Contact.Name</h6>
+                                                        </a>
+                                                        <p class="m-0 amber-text">Suspected Case</p>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <h6 class="font-weight-900 text-uppercase"><a href="#">Registration</a></h6>
+                                                <p>
+                                                    Contact called in complaining of a persistent cough. They revielled that they had fever at night and sustepected weight loss. I referred the case for xray at Mbagathi Hospital
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="social-icon">
+                                            <i class="material-icons vertical-align-bottom ml-3 mr-1">chat_bubble_outline</i> View
+                                            <span><i class="material-icons vertical-align-bottom ml-3 mr-1">redo</i> 8</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

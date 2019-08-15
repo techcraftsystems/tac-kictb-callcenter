@@ -1,0 +1,299 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    div.padding-0-10 {
+        padding: 0 10px;
+    }
+    .recent-buyers-card .collection {
+        border: none;
+    }
+    .recent-buyers-card .collection .collection-item {
+        min-height: auto;
+        padding-left: 55px;
+        border-bottom: none;
+    }
+    .recent-buyers-card .collection .collection-item.avatar:not(.circle-clipper) > .circle {
+        left: 0;
+    }
+    .recent-buyers-card .collection .collection-item.avatar .secondary-content {
+        right: 0;
+        color: #2196f3;
+    }
+</style>
+
+<div class="col s12">
+    <div class="container">
+        <div id="card-stats">
+            <div class="row">
+                <div class="col s12 m6 l6 xl3">
+                    <div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text animate fadeLeft">
+                        <div class="padding-4">
+                            <div class="col s7 m7">
+                                <i class="material-icons background-round mt-5">call</i>
+                                <p>Center Calls</p>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0 white-text">143</h5>
+                                <p class="no-margin">Today</p>
+                                <p>12,700</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l6 xl3">
+                    <div class="card gradient-45deg-red-pink gradient-shadow min-height-100 white-text animate fadeLeft">
+                        <div class="padding-4">
+                            <div class="col s7 m7">
+                                <i class="material-icons background-round mt-5">people</i>
+                                <p>Contacts</p>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0 white-text">8,185</h5>
+                                <p class="no-margin">Suspect</p>
+                                <p>11,925</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l6 xl3">
+                    <div class="card gradient-45deg-amber-amber gradient-shadow min-height-100 white-text animate fadeRight">
+                        <div class="padding-4">
+                            <div class="col s7 m7">
+                                <i class="material-icons background-round mt-5">timeline</i>
+                                <p>Case Detection</p>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0 white-text">43%</h5>
+                                <p class="no-margin">Growth</p>
+                                <p>11,230</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m6 l6 xl3">
+                    <div class="card gradient-45deg-green-teal gradient-shadow min-height-100 white-text animate fadeRight">
+                        <div class="padding-4">
+                            <div class="col s7 m7">
+                                <i class="material-icons background-round mt-5">attach_money</i>
+                                <p>Expenditure</p>
+                            </div>
+                            <div class="col s5 m5 right-align">
+                                <h5 class="mb-0 white-text">$890</h5>
+                                <p class="no-margin">Today</p>
+                                <p>$25,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--chart dashboard start-->
+<div id="chart-dashboard" class="padding-0-10">
+    <div class="row">
+        <div class="col s12 m8 l8">
+            <div class="card animate fadeUp">
+                <div class="card-move-up waves-effect waves-block waves-light">
+                    <div class="move-up cyan darken-1">
+                        <div>
+                            <span class="chart-title white-text">Recent Cases</span>
+                            <div class="chart-revenue cyan darken-2 white-text">
+                                <p class="chart-revenue-total">4,500 cases</p>
+                                <p class="chart-revenue-per"><i class="material-icons">arrow_drop_up</i> 21.80 %</p>
+                            </div>
+                            <div class="switch chart-revenue-switch right">
+                                <label class="cyan-text text-lighten-5">
+                                    Month <input type="checkbox" /> <span class="lever"></span> Year
+                                </label>
+                            </div>
+                        </div>
+                        <div class="trending-line-chart-wrapper"><canvas id="revenue-line-chart" height="70"></canvas></div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <a class="btn-floating btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                        <i class="material-icons activator">filter_list</i>
+                    </a>
+                    <div class="col s12 m3 l3">
+                        <div id="doughnut-chart-wrapper">
+                            <canvas id="doughnut-chart" height="200"></canvas>
+                            <div class="doughnut-chart-status">
+                                <p class="center-align font-weight-600 mt-4">4500</p>
+                                <p class="ultra-small center-align">Calls</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m2 l2">
+                        <ul class="doughnut-chart-legend">
+                            <li class="mobile ultra-small"><span class="legend-color"></span> Confirmed</li>
+                            <li class="kitchen ultra-small"><span class="legend-color"></span> Others</li>
+                            <li class="home ultra-small"><span class="legend-color"></span> No Case</li>
+                        </ul>
+                    </div>
+                    <div class="col s12 m5 l6">
+                        <div class="trending-bar-chart-wrapper"><canvas id="trending-bar-chart" height="90"></canvas></div>
+                    </div>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Revenue by Month <i class="material-icons right">close</i>
+                    </span>
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="id">&nbsp;</th>
+                                <th data-field="month">Month</th>
+                                <th data-field="item-sold">Confirmed</th>
+                                <th data-field="item-price">Other Cases</th>
+                                <th data-field="item-price">No Case</th>
+                                <th data-field="total-profit">Total Calls</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Jun 2019</td>
+                                <td>3,000</td>
+                                <td>500</td>
+                                <td>2,000</td>
+                                <td>4,500</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>May 2019</td>
+                                <td>122</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>1,200</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Apr 2019</td>
+                                <td>122</td>
+                                <td>100</td>
+                                <td>100</td>
+                                <td>1,450</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4 l4">
+            <div class="card animate fadeUp">
+                <div class="card-move-up teal accent-4 waves-effect waves-block waves-light">
+                    <div class="move-up">
+                        <p class="margin white-text">Examination Stats</p>
+                        <canvas id="trending-radar-chart" height="114"></canvas>
+                    </div>
+                </div>
+                <div class="card-content teal" style="padding: 20px 10px">
+                    <a class="btn-floating btn-move-up waves-effect waves-light red accent-2 z-depth-4 right">
+                        <i class="material-icons activator">done</i>
+                    </a>
+                    <div class="line-chart-wrapper">
+                        <p class="margin white-text">Detection by County</p>
+                        <canvas id="line-chart" height="114"></canvas>
+                    </div>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        Detection by County <i class="material-icons right">close</i>
+                    </span>
+                    <table class="responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="country-name">Code</th>
+                                <th data-field="country-name">County Name</th>
+                                <th data-field="item-sold">Confirmed</th>
+                                <th data-field="total-profit">Total Cases</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>047</td>
+                                <td>Nairobi</td>
+                                <td>65</td>
+                                <td>189</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--call/reminders start-->
+<div class="row padding-0-10">
+    <div class="incoming-calls col s12 m6 l3">
+        <div class="card recent-buyers-card animate fadeUp" style="margin:6px 0 0 0">
+            <div class="card-content">
+                <h4 class="card-title mb-0">Call Manager<i class="material-icons float-right">more_vert</i></h4>
+                <p class="medium-small pt-2">Today</p>
+                <ul class="collection mb-0">
+                    <li class="collection-item avatar">
+                        <img src="~/images/avatar/avatar-00.png" alt="" class="circle">
+                        <a class="grey-text text-darken-2 call-redirect font-weight-600 pointer" data-uuid="" data-phone="+254720336376">+254 722 33 6376</a>
+                        <p class="current-call medium-small green-text">00:12:34</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons green-text">call</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <img src="~/images/avatar/avatar-18.png" alt="" class="circle">
+                        <a class="grey-text text-darken-2 call-redirect font-weight-600 pointer" data-uuid="3dPB2AD31gD" data-phone="+254733235476">Lilian Akoye</a>
+                        <p class="call-wait medium-small blue-text"><i class="material-icons tiny">history</i> <span>00:01:53</span></p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">call_received</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <img src="~/images/avatar/avatar-00.png" alt="" class="circle">
+                        <a class="grey-text text-darken-2 call-redirect font-weight-600 pointer" data-uuid="" data-phone="+254202344509">+254 20 234 4509</a>
+                        <p class="medium-small">@DateTime.Now.AddMinutes(-5).ToString("HH:mm") hrs</p>
+                        <a href="#!" class="secondary-content"><i class="material-icons red-text">call_missed_outgoing</i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6 l3">
+        <ul id="task-card" class="collection with-header animate fadeLeft">
+            <li class="collection-header cyan">
+                <h5 class="task-card-title mb-3">My Task</h5>
+                <p class="task-card-date">Sept 16, 2019</p>
+            </li>
+            <li class="collection-item dismissable">
+                <label for="task1">
+                    <input type="checkbox" id="task1"> <span class="width-100" style="text-decoration: none;">Call back Patient X. </span>
+                    <a href="#" class="secondary-content"><span class="ultra-small">Today</span></a>
+                    <span class="task-cat cyan">In-App Chat</span>
+                </label>
+            </li>
+            <li class="collection-item dismissable">
+                <label for="task2">
+                    <input type="checkbox" id="task2"> <span class="width-100" style="text-decoration: none;">Follow up Patient X </span>
+                    <a href="#" class="secondary-content"> <span class="ultra-small">Monday</span> </a>
+                    <span class="task-cat red accent-2">Call Out</span>
+                </label>
+            </li>
+            <li class="collection-item dismissable">
+                <label for="task3">
+                    <input type="checkbox" id="task3" checked="checked">
+                    <span class="width-100" style="text-decoration: line-through;"> Add new test facilities</span>
+                    <a href="#" class="secondary-content"> <span class="ultra-small">Wednesday</span> </a>
+                    <span class="task-cat teal accent-4">Investigations</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="col s12 m6 l3"></div>
+    <div class="col s12 m6 l3"></div>
+</div>
+
+
+
+<script src="~/vendors/chartjs/chart.min.js"></script>
+<script src="~/js/home-index.js" type="text/javascript"></script>

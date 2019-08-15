@@ -1,0 +1,14 @@
+/*================================================================================
+	Item Name: TAC-CallCenter 
+	Version: 5.0
+	Author: DENNIS HENRY
+	Author URL: https://techcraftsystems.net/user/daugmaud/portfolio
+================================================================================*/
+
+a.pointer, 
+a.pointer img {
+    cursor: pointer!important;
+}
+.zero-margin {
+    margin:0!important;
+}
